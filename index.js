@@ -3,8 +3,9 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
+    res.send({ hello: 'world' });
 });
+
 
 //choix dynamique du port d'écoute selon l'environnement d'execution
 const PORT = process.env.PORT || 5000;
