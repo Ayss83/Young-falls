@@ -7,9 +7,3 @@ else
 {
     module.exports = require('./dev');
 }
-
-
-
-
-//userprod
-//youngfallsprodaccess
