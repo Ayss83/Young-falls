@@ -21,7 +21,7 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
-//auto exécution de la fonction retournée
+//auto exécution de la fonction retournée par routes/authRoutes.js
 require('./routes/authRoutes')(app);
 
 //choix dynamique du port d'écoute selon l'environnement d'execution

@@ -19,6 +19,12 @@ module.exports = app => {
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook'));
 
+    app.get('/api/logout', (req, res) => {
+        //Destruction du cookie d'identification
+        req.logout();
+        res.send(req.user);
+    });
+
     app.get('/api/current_user', (req, res) => {
         res.send(req.user);
     });

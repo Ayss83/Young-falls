@@ -45,6 +45,7 @@ passport.use(new GoogleStrategy(
     })
 );
 
+//transposition de la méthode d'identification google pour facebook
 passport.use(new FacebookStrategy(
     {
         clientID: keys.FacebookClientID,
