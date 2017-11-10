@@ -1,7 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-const keys = require('./../config/keys');
+const keys = require('../config/keys');
 const mongoose = require('mongoose');
 
 const User = mongoose.model('users');
@@ -24,7 +24,8 @@ passport.use(new GoogleStrategy(
     {
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
         //Recherche d'un googleId dans la db correspondant à l'id du profil envoyé par la requête
@@ -50,7 +51,8 @@ passport.use(new FacebookStrategy(
     {
         clientID: keys.FacebookClientID,
         clientSecret: keys.FacebookClientSecret,
-        callbackURL: '/auth/facebook/callback'
+        callbackURL: '/auth/facebook/callback',
+        proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
         User.findOne({ facebookId: profile.id })
