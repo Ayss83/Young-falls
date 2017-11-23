@@ -1,10 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const keys = require('./config/keys');
-require('./models/User');
-require('./services/passport');
+const mongoose = require('mongoose'); //middleware base de données mongoDB
+const cookieSession = require('cookie-session'); //gestion de token de session
+const passport = require('passport'); //package de gestion d'authentification
+const keys = require('./config/keys'); //centralisation des infos
+
+require('./models/User'); //modèle d'objet pour le middleware
+require('./services/passport'); //configuration de la méthode d'authentification
 
 mongoose.connect(keys.mongoURI);
 
